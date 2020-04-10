@@ -23,11 +23,11 @@ public class Video
         this.rating=rating;
         
     }
-    public void int getRating(){
+    public int getRating(){
         return rating;
         
     }
-    public void boolean getCheckout(){
+    public boolean getCheckout(){
         return checkout;
     }
     
@@ -146,5 +146,8 @@ public class VideoStore{
 		int number=Integer.parseInt(input);
 		}
 }
+  }    
+      
+
 
 
