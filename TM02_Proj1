@@ -43,7 +43,7 @@ public class VideoStore{
        
        
    } 
-   void doCheckout(String name){
+    public void doCheckout(String name){
        for(int i=0;i<store.length;i++){
             if (store[i].getName().equals(name)){
                store[i].doCheckout();
@@ -53,19 +53,29 @@ public class VideoStore{
        System.out.println("Video\""+name+"\" checked out successfully."); 
        
    }
-   void doReturn(String name){
+   public void doReturn(String name){
+        for(int i=0;i<store.length;i++){
+            if (store[i].getName().equals(name)){
+               store[i].doReturn();
+               break;
+           }
+        }
+        System.out.println("Video\""+name+"\" reterned successfully."); 
+       
+       
        
    }
-   void receiveRating(String name,int rating){
+   public void receiveRating(String name,int rating){
        for(int i=0;i<store.length;i++){
             if (store[i].getName().equals(name)){
                 store[i].receiveRating(rating);
                 break;
             }
        }
+       System.out.println("Rating \""+rating+"has been mapped to the Video\""+name+"\""); 
        
    }
-   void listInventory(){
+   public void listInventory(){
        System.out.println("------------------------------------------------------------------");
        System.out.println("Video Name        |       Checkout Status        |       Rating");
        System.out.println("------------------------------------------------------------------");
@@ -91,9 +101,10 @@ public class VideoStore{
 		System.out.println("MAIN MENU \n---------\n---------\n");
 		System.out.println("1.Add Videos \n2.Check Out Videos \n3.Return Video \n4.Receive Rating \n5.List Inventory \n6.Exit \n");
 		String input= scanner.nextLine();
+		int number=Integer.parseInt(input);
 		String videoName;
 		String rating;
-		int number=Integer.parseInt(input);
+		
 		while(number!=6){
 		    switch(number){
 		        case 1:{
@@ -109,12 +120,31 @@ public class VideoStore{
 		            break;
 		            
 		        }
-		        
+		        case 3:{
+		            System.out.print("Enter the name of the video that you want to return:");
+		            videoName=scanner.nextLine();
+		            video.doReturn(videoName);
+		            break;
 		            
-		            
+		        }
+		         case 4:{
+		            System.out.print("Enter the name of the video that you want to Rate:");
+		            videoName=scanner.nextLine();
+		            System.out.print("Enter the rating for this Video ");
+		            rating=Integer.parseInt(scanner.nextLine());
+		            video.receiveRating(videoName,rating);
+		            break;
+		        }
+		         case 5:{   
+		             video.listInventory();
+		             break;
+		       }
 		    }
+		System.out.println("MAIN MENU \n---------\n---------\n");
+		System.out.println("1.Add Videos \n2.Check Out Videos \n3.Return Video \n4.Receive Rating \n5.List Inventory \n6.Exit \n");
+		String input= scanner.nextLine();
+		int number=Integer.parseInt(input);
 		}
-	}
 }
 
 
