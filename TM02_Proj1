@@ -2,7 +2,7 @@
 public class Video
 {
     String videoName;
-    boolean checkout=false;
+    boolean checkout;
     int rating;
     
     public Video(String name){
@@ -16,6 +16,7 @@ public class Video
         
     }
     public void doReturn(){
+        checkout=false;
         
     }
     public void receiveRating(int rating){
@@ -34,19 +35,22 @@ public class Video
 public class VideoStore{
     Video[] store;
     static int ind=0;
-   void addVideo(String name){
+    
+    public void addVideo(String name){
        store[ind]=new Video(name);
        ind++;
+       System.out.println("Video\""+name+"\" added successfully.");
        
        
    } 
    void doCheckout(String name){
        for(int i=0;i<store.length;i++){
             if (store[i].getName().equals(name)){
-               store[i].doCheckout;
+               store[i].doCheckout();
                break;
            }
         }
+       System.out.println("Video\""+name+"\" checked out successfully."); 
        
    }
    void doReturn(String name){
@@ -62,7 +66,12 @@ public class VideoStore{
        
    }
    void listInventory(){
+       System.out.println("------------------------------------------------------------------");
+       System.out.println("Video Name        |       Checkout Status        |       Rating");
+       System.out.println("------------------------------------------------------------------");
        
+       for(int i=0;i<store.length;i++){
+           System.out.println(store[i].getName()+"   |   "+store[i].getCheckout()+"   |   "+store[i].getRating()+"   |   ");
    }
    
    
@@ -76,7 +85,35 @@ public class VideoStore{
   public class VideoLauncher{  
     
 	public static void main(String[] args) {
-		System.out.println("Hello World");
+	    
+	    VideoStore video=new VideoStore();
+	    Scanner scanner= new Scanner(System.in);
+		System.out.println("MAIN MENU \n---------\n---------\n");
+		System.out.println("1.Add Videos \n2.Check Out Videos \n3.Return Video \n4.Receive Rating \n5.List Inventory \n6.Exit \n");
+		String input= scanner.nextLine();
+		String videoName;
+		String rating;
+		int number=Integer.parseInt(input);
+		while(number!=6){
+		    switch(number){
+		        case 1:{
+		            System.out.print("Enter the name of the video that you want to add:");
+		            videoName=scanner.nextLine();
+		            video.addVideo(videoName);
+		            break;
+		        }
+		        case 2:{
+		            System.out.print("Enter the name of the video that you want to check out:");
+		            videoName=scanner.nextLine();
+		            video.doCheckout(videoName);
+		            break;
+		            
+		        }
+		        
+		            
+		            
+		    }
+		}
 	}
 }
 
