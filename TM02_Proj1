@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class Video
 {
@@ -32,6 +33,7 @@ public class Video
     }
     
 }
+
 public class VideoStore{
     Video[] store;
     static int ind=0;
@@ -87,25 +89,23 @@ public class VideoStore{
    
 }
 
-    
-    
-    
-    
-    
-  public class VideoLauncher{  
+public class VideoLauncher{  
     
 	public static void main(String[] args) {
 	    
 	    VideoStore video=new VideoStore();
 	    Scanner scanner= new Scanner(System.in);
+	
+		String videoName;
+		int rating;
+		int flag=0;
+		while(flag!=6){
 		System.out.println("MAIN MENU \n---------\n---------\n");
 		System.out.println("1.Add Videos \n2.Check Out Videos \n3.Return Video \n4.Receive Rating \n5.List Inventory \n6.Exit \n");
 		String input= scanner.nextLine();
 		int number=Integer.parseInt(input);
-		String videoName;
-		String rating;
-		
-		while(number!=6){
+		flag=number;
+		    
 		    switch(number){
 		        case 1:{
 		            System.out.print("Enter the name of the video that you want to add:");
@@ -140,14 +140,12 @@ public class VideoStore{
 		             break;
 		       }
 		    }
-		System.out.println("MAIN MENU \n---------\n---------\n");
-		System.out.println("1.Add Videos \n2.Check Out Videos \n3.Return Video \n4.Receive Rating \n5.List Inventory \n6.Exit \n");
-		String input= scanner.nextLine();
-		int number=Integer.parseInt(input);
-		}
-}
-  }    
+	   
+		} 
+}}}
+    
       
+
 
 
 
