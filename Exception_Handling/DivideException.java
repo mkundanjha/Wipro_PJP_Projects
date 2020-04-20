@@ -8,7 +8,7 @@ public class DivideException
         }
         
         return num1/num2;
-    }
+    }	
 	public static void main(String[] args) {
 	    try{
 	    int num1=10;
