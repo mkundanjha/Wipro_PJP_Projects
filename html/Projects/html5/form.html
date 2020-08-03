@@ -1,0 +1,50 @@
+<!DOCTYPE html5>
+<html>
+  <head>
+    <style>
+      td {
+        padding: 5%;
+        width: fit-content;
+      }
+    </style>
+  </head>
+
+  <body>
+    <table border="1" style="width: 50%;">
+      <tr>
+        <th colspan="2">Visitor's Information</th>
+      </tr>
+      <tr>
+        <td>
+          <form>
+            Email
+            <input required type="email" placeholder="abc@gmail.com" />
+            <br /><br />
+            <label>Intrest:</label>
+            <input type="checkbox" />Research <input type="checkbox" /> Purchase
+            <br /><br />Occupation:
+
+            <select name="value" multiple>
+              <option value="none" selected disabled hidden>
+                Select one
+              </option>
+              <option>Doctor</option>
+              <option>Engineer</option>
+              <option>Buisness</option>
+              <option>Tailor</option>
+              <option>Student</option>
+            </select>
+            <br /><br />
+            Want us to send you junk emails?<br />
+            <input type="radio" name="ok" value="yes" />yes
+            <input type="radio" name="ok" value="no" /> no
+
+            <br /><br />
+            <input type="submit" />
+            <input type="reset" />
+          </form>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
