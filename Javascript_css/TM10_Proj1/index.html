@@ -1,0 +1,66 @@
+<!DOCTYPE html5>
+<html>
+  <head>
+    <p id="demo"></p>
+    <script src="validation.js"></script>
+    <link href="design.css" rel="stylesheet" />
+  </head>
+  <body>
+    <br /><br /><br />
+
+    <form>
+      <label>First Name</label>
+      <input
+        required
+        type="text"
+        pattern="[A-Z a-z]{1,30}"
+        title="Must be character"
+      /><br /><br />
+      <label>Last Name</label>
+      <input
+        required
+        type="text"
+        pattern="[A-Z a-z]{2,20}"
+        title="Must be character"
+      /><br /><br />
+      <label>Password</label>
+      <input
+        required
+        type="password"
+        id="pass"
+        pattern=".{6,20}"
+        title="password length must be between 6-20 "
+      /><br /><br />
+      <label>Confirm Password </label>
+      <input
+        required
+        type="password"
+        id="cpass"
+        onchange="check();"
+      /><br /><br />
+      <label>Gender</label>
+      <input required type="radio" name="gender" value="male" />male
+      <input required type="radio" name="gender" value="female" />female
+      <br /><br />
+      <label>Mobile No</label>
+      <input
+        type="tel"
+        pattern="[0-9]{3}[-.\s][0-9]{3}[-.\s][0-9]{4}"
+        title="format should be XXX-XXX-XXXX or XXX.XXX.XXXX 0r XXX XXX XXXX"
+        placeholder="XXX-XXX-XXXX"
+      />
+      <br /><br />
+      <label>DOB</label>
+      <input required type="date" /><br /><br />
+
+      <label>Email</label>
+      <input
+        required
+        type="email"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+      /><br /><br />
+      <span id="passmessage"></span><br /><br />
+      <button id="submit" class="onHover">Submit</button>
+    </form>
+  </body>
+</html>
